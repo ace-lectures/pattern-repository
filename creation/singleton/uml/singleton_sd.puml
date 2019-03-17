@@ -1,0 +1,30 @@
+@startuml
+
+hide footbox
+title Singleton Pattern Behavior
+
+participant ": Client" as C
+participant "Singleton" as S <<Class>>
+
+[-> C: request()
+activate C
+C -> S: build()
+activate S
+opt instance is null
+  create "i: Singleton" as I
+  S -> I: new()
+  I --> S
+  S -> S: instance = i
+end
+S --> C: instance
+deactivate S
+
+C -> I: doSomething()
+activate I
+I --> C
+deactivate I
+
+[<-- C:
+deactivate C
+
+@enduml
