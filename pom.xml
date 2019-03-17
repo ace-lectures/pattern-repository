@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+  http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>io.github.ace-lectures</groupId>
+  <artifactId>pattern-repository</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>ACE :: Patrons de Conception (Catalogue)</name>
+  <description>
+    Implémentation de démonstration de différents patrons de conceptions
+  </description>
+  <inceptionYear>2019</inceptionYear>
+
+
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <developers>
+    <developer>
+      <id>mosser</id>
+      <name>Sebastien Mosser</name>
+      <email>mosser.sebastien@uqam.ca</email>
+      <url>https://mosser.github.io</url>
+      <timezone>-4</timezone>
+      <roles>
+        <role>Main Developer</role>
+      </roles>
+    </developer>
+  </developers>
+
+  <licenses>
+    <license>
+      <name>LGPL 3.0</name>
+      <url>http://www.gnu.org/licenses/lgpl-3.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <organization>
+    <name>Université du Québec à Montréal</name>
+    <url>http://info.uqam.ca</url>
+  </organization>
+
+  <modules>
+    <module>comportement</module>
+    <module>structure</module>
+    <module>creation</module>
+  </modules>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.6.0</version>
+        <configuration>
+          <mainClass>Main</mainClass>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
