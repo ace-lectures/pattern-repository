@@ -2,8 +2,9 @@
 
   * Famille : Création
 
+## Description du patron 
 
-## Structure
+### Structure
 
 <div align="center">
 
@@ -11,8 +12,7 @@
 
 </div>
 
-
-## Comportement
+### Comportement
 
 <div align="center">
 
@@ -27,3 +27,10 @@
 ![singleton class diag](./uml/_example.png)
 
 </div>
+
+## Démonstration
+
+  * Pour compiler le code : 
+    * `lucifer:singleton mosser$ mvn -q clean package`
+  * Pour exécuter la démonstration :
+    * `lucifer:singleton mosser$ mvn -q exec:java`
