@@ -1,0 +1,28 @@
+@startuml
+
+hide footbox
+title Decorator Pattern Behavior
+
+participant "d1: ConcreteDecorator1" as D1
+participant "d2: ConcreteDecorator2" as D2
+participant ": ConcreteComponent" as CD
+
+[-> D1: operation()
+activate D1
+D1 -> D2: operation()
+activate D2
+D2 -> CD: operation
+activate CD
+note right: initial behavior
+CD --> D2
+deactivate CD
+D2 -> D2: extra()
+note right: added by d2
+D2 --> D1
+deactivate D2
+D1 -> D1: extra()
+note right: added by d1
+[<-- D1
+deactivate D1
+
+@enduml

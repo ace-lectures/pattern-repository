@@ -1,0 +1,29 @@
+@startuml
+
+skinparam nodesep 75
+skinparam ranksep 50
+hide empty members
+
+interface Component {
+  + {abstract} operation()
+}
+
+class ConcreteComponent {
+  + operation()
+}
+
+abstract class Decorator
+
+Component <|-- ConcreteComponent
+Component <|-- Decorator
+Decorator o--> "1\ncomp" Component
+
+class ConcreteDecorator {
+  - extra()
+  + operation()
+}
+Decorator <|-- ConcreteDecorator
+
+
+
+@enduml

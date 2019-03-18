@@ -1,0 +1,64 @@
+@startuml
+
+skinparam nodesep 50
+skinparam ranksep 50
+hide empty members
+
+interface Beverage <<Component>> {
+  + {abstract} <<operation>> getPrice(): double
+}
+
+abstract class Coffee {
+  + toString(): String
+}
+
+Beverage <|-- Coffee
+
+abstract class Extra <<Decorator>> {
+  this(Beverage)
+  __
+  + <<operation>> getPrice(): double
+  + toString(): String
+  __
+  ~ {abstract} <<extra>> extra(double): double
+}
+Beverage <|-- Extra
+Extra --> "1\ncomponent" Beverage
+
+package coffees {
+  class Regular <<ConcreteComponent>> {
+    + <<operation>> getPrice(): double
+  }
+
+  class Fancy <<ConcreteComponent>> {
+    + <<operation>> getPrice(): double
+  }
+
+  Fancy -[hidden]-> Regular
+}
+
+Coffee <|-- Regular
+Coffee <|-- Fancy
+
+package addons {
+  class ExpressoShot <<ConcreteDecorator>> {
+    ~ <<extra>> extra(double): double
+  }
+
+  class Discount <<ConcreteDecorator>> {
+    ~ <<extra>> extra(double): double
+  }
+
+  class SoyMilk <<ConcreteDecorator>> {
+    ~ <<extra>> extra(double): double
+  }
+
+  SoyMilk <-[hidden]- Discount
+
+}
+
+Extra <|-- ExpressoShot
+Extra <|-- SoyMilk
+Extra <|-- Discount
+
+@enduml
