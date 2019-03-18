@@ -1,0 +1,31 @@
+@startuml
+
+skinparam nodesep 75
+skinparam ranksep 50
+hide empty members
+
+
+
+class RecommendationEngine <<Context>>{
+  + <<operation>> recommend(List<Integer>): Integer
+}
+
+interface PriceComparison <<Strategy>> {
+  + {abstract} <<algorithm>> compare(List<Integer>): Integer
+}
+
+class CheapestOne <<ConcreteStrategy>> {
+  + <<algorithm>> compare(List<Integer>): Integer
+}
+
+class ClosestToAverage <<ConcreteStrategy>> {
+  + <<algorithm>> compare(List<Integer>): Integer
+}
+
+PriceComparison <|-- CheapestOne
+PriceComparison <|-- ClosestToAverage
+
+RecommendationEngine *--> "1\ncomparator" PriceComparison
+
+
+@enduml

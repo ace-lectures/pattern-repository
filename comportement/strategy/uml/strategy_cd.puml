@@ -1,0 +1,27 @@
+@startuml
+
+skinparam nodesep 75
+skinparam ranksep 50
+hide empty members
+
+
+
+class Context {
+  + operation()
+}
+
+interface Strategy {
+  + {abstract} algorithm()
+}
+
+class ConcreteStrategy {
+  + algorithm()
+}
+
+
+Strategy <|-- ConcreteStrategy
+
+Context -right-> "1\nstrategy" Strategy
+
+
+@enduml

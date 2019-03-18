@@ -1,0 +1,42 @@
+@startuml
+
+hide footbox
+title Strategy Pattern Behavior
+
+participant ": Context" as C
+participant "cs1: ConcreteStrategy1" as CS1
+
+== Using a pre-existing strategy ==
+
+[-> C: operation()
+activate C
+C -> CS1: algorithm()
+activate CS1
+CS1 --> C
+deactivate CS1
+[<-- C:
+deactivate C
+
+== Adapting the context due to external circumstances ==
+
+[-> C
+activate C
+create "cs2: ConcreteStrategy2" as CS2
+C -> CS2: new()
+CS2 --> C
+C -> C: this.strategy = cs2
+[<-- C:
+deactivate C
+
+== Using the adapted context ==
+
+[-> C: operation()
+activate C
+C -> CS2: algorithm()
+activate CS2
+CS2 --> C
+deactivate CS2
+[<-- C:
+deactivate C
+
+@enduml
