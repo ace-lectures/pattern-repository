@@ -51,6 +51,7 @@
     <module>comportement</module>
     <module>structure</module>
     <module>creation</module>
+    <module>extras</module>
   </modules>
 
   <build>
