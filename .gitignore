@@ -1,3 +1,4 @@
 target
 *.pdf
 .idea
+.DS_Store

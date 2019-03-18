@@ -15,7 +15,7 @@ public abstract class Watcher {
         t.register(this);
     }
 
-    public synchronized void update() {
+    public void update() {
         System.out.println("["+name+"] is receiving an update [" + this.getClass().getSimpleName()+"]");
     }
 

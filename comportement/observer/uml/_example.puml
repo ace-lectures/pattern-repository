@@ -1,0 +1,63 @@
+@startuml
+
+skinparam nodesep 50
+skinparam ranksep 50
+skinparam noteFontSize 10
+skinparam noteFontName Courier
+hide empty members
+
+class Ticket <<Subject>> <<ConcreteSubject>>{
+  - String from
+  - String to
+  - <<state>> double price
+  __
+  + <<attach>> register(Watcher)
+  + <<detach>> unregister(Watcher)
+  - <<notify>> broadcast()
+  __
+  + changePrice(double)
+  + <<getState>> getPrice(): double
+}
+note bottom: void changePrice(double) {\n  ...\n  broadcast();\n}
+
+Ticket "1\nticket" *-> "0..n\nwatchers" Watcher
+
+abstract class Watcher <<Observer>> {
+  - String name
+  __
+  this(String, Ticket)
+  __
+  + <<update>> update()
+}
+note top: this(str, tkt) {\n  ...\n  tkt.register(this);\n}
+
+Watcher <|-- AlwaysNotify
+Watcher <|-- LeaveWhenTooExpensive
+Watcher <|-- NotifyPriceDrop
+Watcher <|-- NotifyPriceRise
+
+class AlwaysNotify <<ConcreteObserver>> {
+  + <<update>> update()
+}
+
+class LeaveWhenTooExpensive <<ConcreteObserver>> {
+  - double threshold
+  __
+  + <<update>> update()
+}
+
+class NotifyPriceDrop <<ConcreteObserver>> {
+  - <<subjectState>> double lastPrice
+  __
+  + <<update>> update()
+}
+
+class NotifyPriceRise <<ConcreteObserver>> {
+  - <<subjectState>> double lastPrice
+  __
+  + <<update>> update()
+}
+
+AlwaysNotify -[hidden]-> LeaveWhenTooExpensive
+NotifyPriceRise -[hidden]-> NotifyPriceDrop
+@enduml

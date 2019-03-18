@@ -1,0 +1,79 @@
+@startuml
+
+hide footbox
+title Observer Pattern Behavior
+
+participant ": ConcreteSubject" as CS
+participant "o1: ConcreteObserver1" as O1
+participant "o2: ConcreteObserver2" as O2
+
+[-> CS: doSomething()
+note left: this.state = ...
+activate CS
+CS -> CS: notify()
+activate CS #CCCCCC
+deactivate CS
+[<- CS
+deactivate CS
+
+O1 -> CS: attach(this)
+
+[-> CS: doSomething()
+activate CS
+CS -> CS: notify()
+activate CS  #CCCCCC
+CS -> O1: update()
+activate O1
+O1 -> CS: getState()
+CS --> O1
+note right: this.subjectState = ...
+O1 --> CS
+deactivate O1
+deactivate CS
+[<- CS
+deactivate CS
+
+O2 -> CS: attach(this)
+
+[-> CS: doSomething()
+activate CS
+CS -> CS: notify()
+activate CS  #CCCCCC
+par
+  CS -> O1: update()
+  activate O1
+  O1 -> CS: getState()
+  CS --> O1
+  O1 --> CS
+  deactivate O1
+else
+  CS -> O2: update()
+  activate O2
+  O2 -> CS: getState()
+  CS --> O2
+  O2 --> CS
+  deactivate O2
+end
+deactivate CS
+[<- CS
+deactivate CS
+
+O1 -> CS: detach(this)
+
+[-> CS: doSomething()
+activate CS
+CS -> CS: notify()
+activate CS  #CCCCCC
+CS -> O2: update()
+activate O2
+O2 -> CS: getState()
+CS --> O2
+O2 --> CS
+deactivate O2
+deactivate CS
+[<- CS
+deactivate CS
+
+
+
+@enduml

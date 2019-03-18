@@ -1,0 +1,33 @@
+@startuml
+
+skinparam nodesep 75
+skinparam ranksep 50
+hide empty members
+
+abstract class Subject {
+  + attach(Observer o)
+  + detach(Observer o)
+  + notify()
+}
+
+abstract class Observer {
+  + {abstract} update()
+}
+
+Subject "1" -> "0..n" Observer
+
+class ConcreteSubject {
+  - T state
+  + getState(): T
+}
+
+Subject <|-- ConcreteSubject
+
+class ConcreteObserver {
+  - T subjectState
+}
+
+Observer <|-- ConcreteObserver
+ConcreteSubject <- ConcreteObserver
+
+@enduml
