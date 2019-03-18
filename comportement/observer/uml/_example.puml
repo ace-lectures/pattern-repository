@@ -29,7 +29,7 @@ abstract class Watcher <<Observer>> {
   __
   + <<update>> update()
 }
-note top: this(str, tkt) {\n  ...\n  tkt.register(this);\n}
+note right: this(str, tkt) {\n  ...\n  tkt.register(this);\n}
 
 Watcher <|-- AlwaysNotify
 Watcher <|-- LeaveWhenTooExpensive
