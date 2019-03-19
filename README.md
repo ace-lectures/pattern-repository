@@ -13,7 +13,7 @@ Ce dépôt est un support au cours INF-5153 de l'Université du Québec à Montr
 Patron de conception | Description | Code d'exemple | Diapositives |
 ---------------------| :---------: | :------------: | :----------: |
 [Abstract Factory](./creation/abstract_factory) | :white_check_mark: | :x: | :x: | 
-[Builder](./creation/builder) | :x: | :x: | :x: |
+[Builder](./creation/builder) | :white_check_mark: | :white_check_mark: | :x: |
 [Factory](./creation/factory) | :white_check_mark: | :x: | :x: | 
 [Prototype](./creation/prototype) | :x: | :x: | :x: |
 [Singleton](./creation/singleton) | :white_check_mark: | :white_check_mark: | :x: |
