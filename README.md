@@ -16,7 +16,7 @@ Patron de conception | Description | Code d'exemple | Diapositives |
 [Builder](./creation/builder) | :x: | :x: | :x: |
 [Factory](./creation/factory) | :white_check_mark: | :x: | :x: | 
 [Prototype](./creation/prototype) | :x: | :x: | :x: |
-[Singleton](./creation/singleton) | :white_check_mark: | : white_check_mark: | :x: |
+[Singleton](./creation/singleton) | :white_check_mark: | :white_check_mark: | :x: |
  
  
 ### Structure
@@ -25,7 +25,7 @@ Patron de conception | Description | Code d'exemple | Diapositives |
 ---------------------| :---------: | :------------: | :----------: |
 [Adapter](./creation/adapter) | :white_check_mark: | :x: | :x: | 
 [Composite](./creation/composite) | :x: | :x: | :x: | 
-[Decorator](./creation/decorator) | :white_check_mark: | : white_check_mark: | :x: | 
+[Decorator](./creation/decorator) | :white_check_mark: | :white_check_mark: | :x: | 
 [Facade](./creation/facade) | :white_check_mark: | :x: | :x: | 
 [Proxy](./creation/proxy) | :x: | :x: | :x: | 
 
@@ -34,9 +34,9 @@ Patron de conception | Description | Code d'exemple | Diapositives |
 Patron de conception | Description | Code d'exemple | Diapositives |
 ---------------------| :---------: | :------------: | :----------: |
 [Command](./comportement/command) | :white_check_mark: | :x: | :x: | 
-[Observer](./comportement/observer) | :white_check_mark: | : white_check_mark: | :x: | 
+[Observer](./comportement/observer) | :white_check_mark: | :white_check_mark: | :x: | 
 [State](./comportement/state) | :white_check_mark: | :x: | :x: | 
-[Strategy](./comportement/strategy) | :white_check_mark: | : white_check_mark: | :x: | 
+[Strategy](./comportement/strategy) | :white_check_mark: | :white_check_mark: | :x: | 
 [Template Method](./comportement/template_method) | :x: | :x: | :x: | 
 [Visitor](./comportement/visitor) | :x: | :x: | :x: | 
 
