@@ -1,0 +1,39 @@
+@startuml
+
+skinparam nodesep 75
+skinparam ranksep 50
+hide empty members
+
+class Client
+
+interface Target {
+  + {abstract} request()
+}
+
+Client . Target
+
+class ConcreteTarget {
+  + request()
+}
+
+class Adapter {
+  - pre()
+  - post()
+  + request()
+}
+
+Target <|-- ConcreteTarget
+Target <|-- Adapter
+
+ConcreteTarget .[hidden] Adapter
+
+
+class Adaptee {
+  + myVerySpecificMethod()
+}
+
+Adapter -> "1" Adaptee
+
+
+
+@enduml

@@ -1,0 +1,60 @@
+@startuml
+
+skinparam nodesep 75
+skinparam ranksep 50
+hide empty members
+
+together {
+  interface AbstractFactory {
+    + {abstract} buildA(): ProductA
+    + {abstract} buildB(): ProductB
+  }
+
+  class ConcreteFactory1 {
+    + buildA(): ProductA
+    + buildB(): ProductB
+  }
+
+  class ConcreteFactory2 {
+    + buildA(): ProductA
+    + buildB(): ProductB
+  }
+}
+
+AbstractFactory <|-- ConcreteFactory1
+AbstractFactory <|-- ConcreteFactory2
+
+package A {
+
+interface ProductA
+class ConcreteProductA1
+class ConcreteProductA2
+
+ConcreteProductA2 .[hidden]. ConcreteProductA1
+
+ProductA <|-- ConcreteProductA1
+ProductA <|-- ConcreteProductA2
+
+}
+
+package B {
+
+interface ProductB
+class ConcreteProductB1
+class ConcreteProductB2
+
+ConcreteProductB2 .[hidden]. ConcreteProductB1
+
+ProductB <|-- ConcreteProductB1
+ProductB <|-- ConcreteProductB2
+
+}
+
+ConcreteFactory2 .[hidden]. ConcreteFactory1
+
+ConcreteFactory1 .> ConcreteProductA1
+ConcreteFactory2 ..> ConcreteProductA2
+ConcreteFactory1 .> ConcreteProductB1
+ConcreteFactory2 ..> ConcreteProductB2
+
+@enduml

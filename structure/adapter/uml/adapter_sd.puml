@@ -1,0 +1,41 @@
+@startuml
+
+hide footbox
+title Adapter Pattern Behavior
+
+participant ": Client" as C
+participant "ct: ConcreteTarget" as CT
+participant "a: Adapter" as A
+participant "ad: Adaptee" as AD
+
+== Concrete Implementation ==
+
+[-> C:
+activate C
+C -> CT: request()
+activate CT
+CT --> C
+deactivate CT
+[<-- C:
+deactivate C
+
+== Using an Adapter ==
+
+[-> C:
+activate C
+C -> A: request()
+activate A
+A -> A: pre()
+note right: adapt the request
+A -> AD: myVerySpecificMethod()
+activate AD
+AD --> A
+deactivate AD
+A -> A: post()
+note right: adapt the response
+A --> C
+deactivate CT
+[<-- C:
+deactivate C
+
+@enduml

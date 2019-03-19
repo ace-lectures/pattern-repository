@@ -1,0 +1,38 @@
+@startuml
+
+skinparam nodesep 75
+skinparam ranksep 50
+hide empty members
+
+together {
+
+  class Client
+
+  interface Command {
+    + {abstract} execute()
+  }
+
+  class Invoker {
+    + invoke(c: Command)
+  }
+
+  Command . Invoker
+  Command .[hidden] Client
+
+}
+
+class Receiver {
+  + action()
+}
+
+class ConcreteCommand {
+  + execute()
+}
+
+Command <|-- ConcreteCommand
+Receiver <- ConcreteCommand
+
+Client .> ConcreteCommand
+Client --> Receiver
+
+@enduml

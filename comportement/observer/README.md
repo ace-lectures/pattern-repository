@@ -2,7 +2,9 @@
 
   * Famille : Comportement
 
-## Description du patron 
+## Description du patron
+
+> "Il est utilisé pour envoyer un signal à des modules qui jouent le rôle d'observateurs. En cas de notification, les observateurs effectuent alors l'action adéquate en fonction des informations qui parviennent depuis les modules qu'ils observent (les observables)."" (wikipedia)
 
 ### Structure
 
@@ -28,17 +30,17 @@
 
 </div>
 
-### Remarques 
+### Remarques
 
   * La notification des `Watcher`s est faite de manière concurrente (`targets.parallelStream().forEach(Watcher::update);`).
     * Cela explique pourquoi les affichages peuvent être dans des ordres différents, et pourquoi les messages semblent se mélanger
-  * Lors de la notification (`Ticket::broadcast`), on est obligé de cloner l'ensemble de `Watcher`s avant de le parcourir pour notifier. 
+  * Lors de la notification (`Ticket::broadcast`), on est obligé de cloner l'ensemble de `Watcher`s avant de le parcourir pour notifier.
     * C'est pour permettre aux `Watcher`s de prendre la décision d'arrêter d'observer le `Ticket`. Dans le cas contraire, on essaierait de modifier l'ensemble des `Watcher`s alors qu'on est toujours en train de le parcourir, ce qui leverait une exception en Java (`ConcurrentModificationException`).
 
 
 ### Démonstration
 
-  * Pour compiler le code : 
+  * Pour compiler le code :
     * `lucifer:observer mosser$ mvn -q clean package`
   * Pour exécuter la démonstration :
     * `lucifer:observer mosser$ mvn -q exec:java`

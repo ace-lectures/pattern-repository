@@ -1,0 +1,29 @@
+@startuml
+
+skinparam nodesep 75
+skinparam ranksep 50
+hide empty members
+
+class Context {
+  ~ changeState(s: State)
+  + doSomething()
+}
+
+interface State {
+  + {abstract} handle()
+}
+
+Context *-> State
+
+class ConcreteState1 {
+  + handle()
+}
+
+class ConcreteState2 {
+  + handle()
+}
+
+State <|-- ConcreteState1
+State <|-- ConcreteState2
+
+@enduml

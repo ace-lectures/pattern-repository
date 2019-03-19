@@ -1,0 +1,29 @@
+@startuml
+
+hide footbox
+title Facade Pattern Behavior
+
+participant "f: Facade" as F
+participant "a: A" as A
+participant "b: B" as B
+participant "c: C" as C
+
+
+[-> F: doSomething()
+activate F
+F -> A: a2()
+activate A
+A --> F
+deactivate A
+F -> B: b3()
+activate B
+B --> F
+deactivate B
+F -> C: c1()
+activate C
+C --> F
+deactivate C
+[<-- F
+deactivate F
+
+@enduml

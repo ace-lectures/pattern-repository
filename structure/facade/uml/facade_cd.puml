@@ -1,0 +1,43 @@
+@startuml
+
+skinparam nodesep 75
+skinparam ranksep 50
+hide empty members
+
+class Facade {
+  + doSomething()
+  + doSomethingElse()
+}
+
+Facade . subsystem.A
+Facade . subsystem.B
+Facade . subsystem.C
+
+package subsystem  {
+
+  class A {
+    + a1()
+    + a2()
+  }
+
+  class B {
+    + b1()
+    + b2()
+    + b3()
+  }
+
+  class C {
+    + c1()
+  }
+
+  class D as "..."
+
+  B <-  A
+  B --> C
+  A <-- D
+  D <- B
+
+}
+
+
+@enduml

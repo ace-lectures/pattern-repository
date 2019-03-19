@@ -1,0 +1,37 @@
+@startuml
+
+hide footbox
+title Command Pattern Behavior
+
+participant ": Client" as C
+participant ": Invoker" as I
+
+[-> C:
+activate C
+create "c: ConcreteCommand" as CC
+C -> CC: new()
+C -> CC: setReceiver(r)
+activate CC
+CC --> C
+deactivate CC
+
+
+participant "r: Receiver" as R
+
+C -> I: invoke(c)
+activate I
+I -> CC: execute()
+activate CC
+CC -> R: action()
+activate R
+R --> CC
+deactivate R
+CC --> I
+deactivate CC
+I --> C
+deactivate I
+
+[<-- C:
+deactivate C
+
+@enduml

@@ -1,0 +1,39 @@
+@startuml
+
+hide footbox
+title State Pattern Behavior
+
+participant ": Context" as C
+participant "s1: ConcreteState1" as S1
+participant "s2: ConcreteState2" as S2
+
+
+
+[-> C: doSomething()
+activate C
+C -> S1: handle()
+activate S1
+S1 --> C
+deactivate S1
+[<-- C
+deactivate C
+
+
+...
+[-> C: changeState(s2)
+activate C
+[<-- C
+deactivate C
+...
+
+[-> C: doSomething()
+activate C
+C -> S2: handle()
+activate S2
+S2 --> C
+deactivate S2
+[<-- C
+deactivate C
+
+
+@enduml

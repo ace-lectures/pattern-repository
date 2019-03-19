@@ -1,0 +1,44 @@
+@startuml
+
+skinparam nodesep 75
+skinparam ranksep 50
+hide empty members
+
+interface Factory {
+  + {abstract} build(): Product
+}
+
+class ConcreteFactory1 {
+  + build(): Product
+}
+
+class ConcreteFactory2 {
+  + build(): Product
+}
+
+Factory <|-- ConcreteFactory1
+Factory <|-- ConcreteFactory2
+
+package products {
+
+  interface Product {
+    + {abstract} doSomething()
+  }
+  class ConcreteProduct1 {
+    + doSomething()
+  }
+  class ConcreteProduct2 {
+    + doSomething()
+  }
+
+  Product <|-- ConcreteProduct1
+  Product <|-- ConcreteProduct2
+
+  ConcreteProduct2 .[hidden]. ConcreteProduct1
+
+}
+
+ConcreteFactory1 .> ConcreteProduct1
+ConcreteFactory2 ..> ConcreteProduct2
+
+@enduml
