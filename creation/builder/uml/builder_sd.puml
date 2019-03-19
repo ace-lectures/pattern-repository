@@ -1,0 +1,35 @@
+@startuml
+
+hide footbox
+title Builder Pattern Behavior
+
+participant ": Director" as D
+participant "builder: ConcreteBuilder" as B
+
+
+[-> D: construct()
+activate D
+D -> B: buildPart()
+activate B
+create participant "part: ProductPart" as PP
+B -> PP: new()
+PP --> B
+B --> D
+deactivate B
+
+...
+
+D -> B: build()
+activate B
+create "p: Product" as P
+B -> P: new()
+B -> P: setPart(part)
+
+...
+
+B --> D: p
+deactivate B
+[<-- D: p
+deactivate D
+
+@enduml

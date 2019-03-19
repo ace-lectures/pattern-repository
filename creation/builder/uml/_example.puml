@@ -1,0 +1,64 @@
+@startuml
+
+skinparam nodesep 75
+skinparam ranksep 50
+hide empty members
+
+class NotificationSystem <<Director>> {
+  - Set<String> customers;
+  __
+  + <<construct>> runCampaign(String, String)
+  - sendMessages(List<Message>)
+}
+
+NotificationSystem . MessageBuilder
+
+interface Message <<Product>> {
+  + {abstract} send()
+}
+
+interface MessageBuilder <<Builder>> {
+  + {abstract} <<buildPart>> addRecipient(String)
+  + {abstract} <<buildPart>> addContents(String)
+  + {abstract} <<result>> assemble(): List<Message>
+}
+
+MessageBuilder . Message
+
+class Email {
+  - String[] to
+  - String contents
+  __
+  + send()
+}
+Message <|-- Email
+
+class SMS {
+  - String to
+  - String contents
+  __
+  + send()
+}
+Message <|-- SMS
+
+class EmailBuilder <<ConcreteBuilder>> {
+  + <<buildPart>> addRecipient(String)
+  + <<buildPart>> addContents(String)
+  + <<result>> assemble(): List<Message>
+}
+EmailBuilder . Email
+MessageBuilder <|-- EmailBuilder
+
+
+class SMSBuilder <<ConcreteBuilder>> {
+  + <<buildPart>> addRecipient(String)
+  + <<buildPart>> addContents(String)
+  + <<result>> assemble(): List<Message>
+}
+
+SMSBuilder . SMS
+MessageBuilder <|-- SMSBuilder
+
+Email -[hidden]- SMS
+
+@enduml

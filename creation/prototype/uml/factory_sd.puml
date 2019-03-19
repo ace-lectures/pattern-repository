@@ -1,0 +1,53 @@
+@startuml
+
+hide footbox
+title Factory Pattern Behavior
+
+participant ": System" as S
+participant "f1: ConcreteFactory1" as F1
+participant "f2: ConcreteFactory2" as F2
+[-> S: useFactory(f1)
+activate S
+note right: this.factory = f1
+[<-- S
+deactivate S
+
+... ...
+
+[-> S: run()
+activate S
+S -> F1: build()
+activate F1
+create "p1: ConcreteProduct1" as P1
+F1 -> P1: new()
+F1 -> P1: ... configure ...
+F1 --> S: p1
+deactivate F1
+S -> P1: doSomething()
+[<-- S
+deactivate S
+
+... ...
+
+[-> S: useFactory(f2)
+activate S
+note right: this.factory = f2
+[<-- S
+deactivate S
+
+... ...
+
+[-> S: run()
+activate S
+S -> F2: build()
+activate F2
+create "p2: ConcreteProduct2" as P2
+F2 -> P2: new()
+F2 -> P2: ... configure ...
+F2 --> S: p2
+deactivate F2
+S -> P2: doSomething()
+[<-- S
+deactivate S
+
+@enduml

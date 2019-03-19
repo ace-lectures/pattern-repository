@@ -1,0 +1,28 @@
+@startuml
+
+skinparam nodesep 75
+skinparam ranksep 50
+hide empty members
+
+class Director {
+  + construct(): Product
+}
+
+Director *-> "1\nbuilder" Builder
+
+interface Builder {
+  + {abstract} buildPart()
+  + {abstract} result(): Product
+}
+
+class ConcreteBuilder {
+  + buildPart()
+  + result(): Product
+}
+
+class Product
+
+Builder <|-- ConcreteBuilder
+Builder . Product
+
+@enduml
