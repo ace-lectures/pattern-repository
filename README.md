@@ -10,7 +10,7 @@ Ce dépôt est un support au cours INF-5153 de l'Université du Québec à Montr
 ### Création
 
 Patron de conception | Description | Code d'exemple | Diapositives |
----------------------|-------------|----------------|--------------|
+---------------------| :---------: | :------------: | :----------: |
 [Factory](./creation/factory) | :white_check_mark: | :x: | :x: | 
 
  
