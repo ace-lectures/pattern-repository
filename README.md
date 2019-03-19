@@ -15,7 +15,7 @@ Patron de conception | Description | Code d'exemple | Diapositives |
 [Abstract Factory](./creation/abstract_factory) | :white_check_mark: | :x: | :x: | 
 [Builder](./creation/builder) | :white_check_mark: | :white_check_mark: | :x: |
 [Factory](./creation/factory) | :white_check_mark: | :x: | :x: | 
-[Prototype](./creation/prototype) | :x: | :x: | :x: |
+[Prototype](./creation/prototype) | :white_check_mark: | :white_check_mark: | :x: |
 [Singleton](./creation/singleton) | :white_check_mark: | :white_check_mark: | :x: |
  
  
@@ -43,6 +43,7 @@ Patron de conception | Description | Code d'exemple | Diapositives |
 ## Bonus
 
   - [ ] `Observer` en utilisant le patron présent dans Java
+  - [ ] `Clone` en utilisant `Cloneable` de Java
 
 
 ## Contribuer au catalogue

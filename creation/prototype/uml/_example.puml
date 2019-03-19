@@ -1,0 +1,19 @@
+@startuml
+
+skinparam nodesep 75
+skinparam ranksep 50
+hide empty members
+
+class Student <<Prototype>> {
+  - Set<String> courses
+  - String name
+  __
+  + this()
+  - this(Student)
+  __
+  + <<clone>> duplicate(): Student
+  + setName(String)
+  + registerTo(String)
+}
+
+@enduml

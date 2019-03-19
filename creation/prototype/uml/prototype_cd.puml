@@ -1,0 +1,14 @@
+@startuml
+
+skinparam nodesep 75
+skinparam ranksep 50
+hide empty members
+
+class Prototype {
+  + this()
+  - this(Prototype)
+  __
+  + clone(): Prototype
+}
+
+@enduml

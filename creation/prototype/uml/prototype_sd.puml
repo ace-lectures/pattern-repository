@@ -1,0 +1,43 @@
+@startuml
+
+hide footbox
+title Prototype Pattern Behavior
+
+participant ": System" as S
+[-> S:
+activate S
+create "p1: Prototype" as P1
+S -> P1: new()
+activate P1
+
+...
+
+note right: heavy creation process
+P1 --> S: p1
+deactivate P1
+
+S -> P1: doSomething()
+activate P1
+P1 --> S
+deactivate P1
+
+S -> P1: clone()
+activate P1
+create "p2: Prototype" as P2
+P1 -> P2: new(p1)
+activate P2
+note left: light copy process
+P2 --> P1: p2
+deactivate P2
+P1 --> S: p2
+deactivate P1
+
+S -> P2: doSomething()
+activate P2
+P2 --> S
+deactivate P2
+
+[<-- S
+deactivate S
+
+@enduml
