@@ -1,0 +1,30 @@
+@startuml
+
+skinparam nodesep 75
+skinparam ranksep 50
+hide empty members
+
+class Main <<Client>>
+
+interface Registry <<Subject>> {
+  + {abstract} <<operation>> getPhoneNumber(String): String
+}
+
+Main .> Registry
+
+class RemoteRegistry <<Registry>> {
+  + <<operation>> getPhoneNumber(String): String
+}
+
+Registry <|-- RemoteRegistry
+
+class CachedRegistry <<Proxy>> {
+  + this(Subject)
+  __
+  + <<operation>> getPhoneNumber(String): String
+}
+Registry <|-- CachedRegistry
+
+RemoteRegistry "1\ntarget" <- CachedRegistry
+
+@enduml

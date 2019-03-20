@@ -1,0 +1,30 @@
+@startuml
+
+skinparam nodesep 75
+skinparam ranksep 50
+hide empty members
+
+class Client
+
+interface Subject {
+  + {abstract} operation()
+}
+
+Client .> Subject
+
+class RealSubject {
+  + operation()
+}
+
+Subject <|-- RealSubject
+
+class Proxy {
+  + this(Subject)
+  __
+  + operation()
+}
+Subject <|-- Proxy
+
+RealSubject "1\ntarget" <- Proxy
+
+@enduml

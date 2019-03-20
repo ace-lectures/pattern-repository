@@ -28,7 +28,7 @@ Patron de conception | Description | Code d'exemple | Diapositives |
 [Composite](./creation/composite) | :white_check_mark: | :white_check_mark: | :x: | 
 [Decorator](./creation/decorator) | :white_check_mark: | :white_check_mark: | :x: | 
 [Facade](./creation/facade) | :white_check_mark: | :x: | :x: | 
-[Proxy](./creation/proxy) | :x: | :x: | :x: | 
+[Proxy](./creation/proxy) | : white_check_mark: | : white_check_mark: | :x: | 
 
 ### Comportement
 

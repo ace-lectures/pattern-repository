@@ -1,0 +1,37 @@
+@startuml
+
+hide footbox
+title Proxy Pattern Behavior
+
+participant ": Client" as C
+participant "s: RealSubject" as S
+
+[-> C:
+activate C
+C -> S: operation()
+activate S
+S --> C
+deactivate S
+[<-- C:
+deactivate C
+
+[-> C:
+activate C
+create ": Proxy" as P
+C -> P: new(s)
+activate P
+P --> C
+deactivate P
+
+C -> P: operation()
+activate P
+P -> S: operation()
+activate S
+S --> P
+deactivate S
+P --> C
+deactivate P
+[<-- C:
+deactivate C
+
+@enduml
