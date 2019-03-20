@@ -39,7 +39,7 @@ Patron de conception | Description | Code d'exemple | Diapositives |
 [State](./comportement/state) | :white_check_mark: | :x: | :x: | 
 [Strategy](./comportement/strategy) | :white_check_mark: | :white_check_mark: | :x: | 
 [Template Method](./comportement/template_method) | :white_check_mark: | :white_check_mark: | :x: | 
-[Visitor](./comportement/visitor) | :x: | :x: | :x: | 
+[Visitor](./comportement/visitor) | :white_check_mark: | :white_check_mark: | :x: | 
 
 ## Bonus
 

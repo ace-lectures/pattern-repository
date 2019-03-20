@@ -19,6 +19,7 @@
     <module>state</module>
     <module>strategy</module>
     <module>template_method</module>
+    <module>visitor</module>
   </modules>
 
 </project>

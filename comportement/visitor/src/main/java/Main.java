@@ -1,21 +1,39 @@
-import sorting.AscendingCounter;
-import sorting.DescendingCounter;
-import sorting.OccurencyCounter;
+import walkers.*;
+import expressions.*;
 
 public class Main {
 
   public static void main(String[] args) {
-    String text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-      + "Maecenas malesuada diam felis, ut consectetur tellus egestas sit amet."
-      + "Ut porttitor augue quis felis sollicitudin posuere.";
+    // e = ((1-5) + 2) + (4 - (4+5)) = -7
+    Expression e =
+            new Addition(
+                    new Addition(
+                            new Literal(2),
+                            new Subtraction(
+                                    new Literal(1),
+                                    new Literal(5))),
+                    new Subtraction(
+                            new Literal(4),
+                            new Addition(
+                                    new Literal(4),
+                                    new Literal(5))));
 
-    System.out.println("\n# Counting word occurencies using an ASC counter");
-    OccurencyCounter asc = new AscendingCounter(text);
-    asc.handle();
 
-    System.out.println("\n# Counting word occurencies using a DSC counter");
-    OccurencyCounter dsc = new DescendingCounter(text);
-    dsc.handle();
+    PrettyPrinter printer = new PrettyPrinter();
+    e.accept(printer);
+    System.out.println("Expression: " + printer.getResult());
+
+    OperandCounter opc = new OperandCounter();
+    e.accept(opc);
+    System.out.println("  #Operands =  " + opc.getResult());
+
+    OperatorCounter ops = new OperatorCounter();
+    e.accept(ops);
+    System.out.println("  #Operators =  " + ops.getResult());
+
+    Evaluator eval = new Evaluator();
+    e.accept(eval);
+    System.out.println("Value =  " + eval.getResult());
 
   }
 
