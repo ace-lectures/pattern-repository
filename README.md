@@ -38,18 +38,18 @@ Patron de conception | Description | Code d'exemple | Diapositives |
 [Observer](./comportement/observer) | :white_check_mark: | :white_check_mark: | :x: | 
 [State](./comportement/state) | :white_check_mark: | :x: | :x: | 
 [Strategy](./comportement/strategy) | :white_check_mark: | :white_check_mark: | :x: | 
-[Template Method](./comportement/template_method) | :x: | :x: | :x: | 
+[Template Method](./comportement/template_method) | :white_check_mark: | :white_check_mark: | :x: | 
 [Visitor](./comportement/visitor) | :x: | :x: | :x: | 
 
 ## Bonus
 
   - [ ] `Observer` en utilisant le patron présent dans Java
-  - [ ] `Clone` en utilisant `Cloneable` de Java
+  - [ ] `Prototype` en utilisant le mécanisme de `Cloneable` de Java
 
 
 ## Contribuer au catalogue
 
-Pour contrinuer au catalogue, n'hésitez pas : 
+Pour contribuer au catalogue, n'hésitez pas : 
 
   - A _forker_ le dépôt pour proposer de nouvelles implémentations (_pull requests_ bienvenues);
   - A utiliser le système d'_issues_ de Github pour rapporter des problèmes ou proposer des évolutions.

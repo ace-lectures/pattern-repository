@@ -1,0 +1,27 @@
+@startuml
+
+skinparam nodesep 75
+skinparam ranksep 50
+hide empty members
+
+abstract class OccurencyCounter <<AbstractAlgorithm>> {
+  + <<process>> handle()
+  __
+  - preprocess()
+  - count()
+  ~ {abstract} <<operation>> display()
+  - postprocess()
+}
+
+class AscendingCounter <<ConcreteAlgorithm>> {
+  ~  <<operation>> display()
+}
+
+class DescendingCounter <<ConcreteAlgorithm>> {
+  ~  <<operation>> display()
+}
+
+OccurencyCounter <|-- AscendingCounter
+OccurencyCounter <|-- DescendingCounter
+
+@enduml

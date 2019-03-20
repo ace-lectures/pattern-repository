@@ -1,0 +1,51 @@
+@startuml
+
+hide footbox
+title Template Method Pattern Behavior
+
+participant ": Client" as C
+participant "a1: ConcreteAlgorithm1" as A1
+participant "a2: ConcreteAlgorithm2" as A2
+
+
+
+[-> C:
+activate C
+C -> A1: process()
+activate A1
+A1 -> A1: step1()
+activate A1 #219BAF
+deactivate A1
+A1 -> A1: operation()
+note right: specific to\nConcreteAlgorithm1
+activate A1 #DAA939
+deactivate A1
+A1 -> A1: step3()
+activate A1 #2DB914
+deactivate A1
+A1 --> C
+deactivate A1
+[<-- C
+deactivate C
+
+
+[-> C:
+activate C
+C -> A2: process()
+activate A2
+A2 -> A2: step1()
+activate A2 #219BAF
+deactivate A2
+A2 -> A2: operation()
+note left: specific to\nConcreteAlgorithm2
+activate A2 #E5E042
+deactivate A2
+A2 -> A2: step3()
+activate A2 #2DB914
+deactivate A2
+A2 --> C
+deactivate A2
+[<-- C
+deactivate C
+
+@enduml
