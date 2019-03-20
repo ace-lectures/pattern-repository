@@ -1,0 +1,29 @@
+@startuml
+
+skinparam nodesep 75
+skinparam ranksep 50
+hide empty members
+
+class Client
+
+interface Component {
+  + {abstract} operation()
+}
+
+Client -> Component
+
+class Leaf {
+  + operation()
+}
+Component <|-- Leaf
+
+class Composite {
+  + operation()
+  __
+  + add(Component)
+  + remove(Component)
+}
+Component <|-- Composite
+Composite *--> "1..n\nchildren" Component
+
+@enduml

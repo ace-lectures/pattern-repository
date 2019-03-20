@@ -1,0 +1,29 @@
+@startuml
+
+skinparam nodesep 75
+skinparam ranksep 50
+hide empty members
+
+class Main <<Client>>
+
+interface Test <<Component>> {
+  + {abstract} <<doSomething>> run()
+}
+
+Main . Test
+
+class Assertion <<Leaf>> {
+  + <<doSomething>> run()
+}
+Test <|-- Assertion
+
+class TestSuite <<Composite>> {
+  + <<doSomething>> run()
+  __
+  + add(Test)
+  + remove(Test)
+}
+Test <|-- TestSuite
+TestSuite *--> "1..n\ntests" Test
+
+@enduml

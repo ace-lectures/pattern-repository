@@ -1,0 +1,39 @@
+@startuml
+
+hide footbox
+title Composite Pattern Behavior
+
+participant ": Client" as C
+participant "l: Leaf" as L
+
+[-> C:
+activate C
+C -> L: operation()
+activate L
+L --> C
+deactivate L
+[<-- C:
+deactivate C
+
+participant "c: Composite" as CO
+collections "child: Component" as CH
+
+[-> C:
+activate C
+C -> CO: operation()
+activate CO
+loop ∀ child ∈ children
+  CO -> CH: operation()
+  activate CH
+  CH --> CO
+  deactivate CH
+end
+CO --> C
+deactivate CO
+[<-- C:
+deactivate C
+
+
+
+
+@enduml
