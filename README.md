@@ -3,6 +3,7 @@
   * Auteur : Sébastien Mosser (UQAM)
   * Contributeurs: Mireille Blay-Fornarino (UCA), Philippe Collet (UCA)
   * Version : 2019.03 
+  * Intégration continue : [![Build Status](https://travis-ci.com/ace-lectures/pattern-repository.svg?branch=master)](https://travis-ci.com/ace-lectures/pattern-repository)
 
 Ce dépôt est un support au cours INF-5153 de l'Université du Québec à Montréal. Il recense des implémentation en Java des patrons de conceptions vu dans ce cours. Il est créé en collaboration avec l'Université Côte d'Azur (IUT & Polytech).
 
