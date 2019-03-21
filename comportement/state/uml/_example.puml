@@ -1,0 +1,83 @@
+@startuml
+
+skinparam nodesep 75
+skinparam ranksep 50
+skinparam noteFontSize 10
+skinparam noteFontName Courier
+
+hide empty members
+
+package bank {
+  class Bank {
+    + perform(Transaction)
+  }
+  class Transaction {
+    - String cardNumber
+    - double amount
+    __
+    + this(String, amount)
+  }
+
+  Transaction . Bank
+}
+
+package terminal {
+  class BankingTerminal <<Context>> {
+    + <<doSomething>> makePayment(String, double)
+    __
+    + connect()
+    + disconnect()
+    __
+    - <<changeState>> setStatus(TerminalStatus)
+  }
+  note left
+    changeState(s) {
+      this.state.destruct()
+      this.state = s
+    }
+  end note
+
+
+  abstract class TerminalStatus <<State>> {
+    + {abstract} <<handle>> performPayment(String, double)
+    + destruct()
+  }
+
+  class Offline <<ConcreteState>> {
+    - Set<Transaction> waiting
+    __
+    + <<handle>> performPayment(String, double)
+    + destruct()
+  }
+  note top
+  performPayment(s,d) {
+    waiting.add(new Transaction(s,d))
+  }
+
+  destruct() {
+    waiting.forEach(t -> bank.perform(t))
+  }
+  end note
+
+
+  class Online <<ConcreteState>> {
+    + <<handle>> performPayment(String, double)
+  }
+
+  note bottom
+  performPayment(s,d) {
+    bank.perform(new Transaction(s,d))
+  }
+  end note
+
+  TerminalStatus <|-- Offline
+  TerminalStatus <|-- Online
+
+  Bank "bank" <-- BankingTerminal
+  BankingTerminal "owner" *--> "status" TerminalStatus
+}
+
+
+
+
+@enduml

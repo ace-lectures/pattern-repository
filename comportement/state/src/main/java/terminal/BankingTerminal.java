@@ -1,17 +1,25 @@
-package banking;
+package terminal;
+
+import bank.Bank;
 
 public class BankingTerminal {
 
-    private TerminalState state;
-    private double batteryLevel;
+    private Bank bank = new Bank();
+    public Bank getBank() { return bank; }
 
-    public void setBatteryLevel(double value) {
-        this.batteryLevel = value;
-        this.state = state.decide(value);
+    public void connect() { this.setStatus(new Online(this)); }
+    public void disconnect() { this.setStatus(new Offline(this)); }
+
+    private void setStatus(TerminalStatus newStatus) {
+        this.status.destruct();
+        this.status = newStatus;
     }
 
+    private TerminalStatus status = new Online(this);
+
     public void makePayment(String creditCard, double value) {
-        this.state.performPayment(creditCard, value);
+        System.out.println("  Performing payment ["+value+"]");
+        this.status.performPayment(creditCard, value);
     }
 
 }
