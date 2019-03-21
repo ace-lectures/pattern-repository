@@ -6,14 +6,24 @@ import expressions.Subtraction;
 
 public interface ExpressionWalker<T> {
 
+	void visit(Literal literal);
 
-    void visitLiteral(Literal literal);
-    default void enterAddition(Addition addition) {}
-    void visitAddition(Addition addition);
-    default void exitAddition(Addition addition) {}
-    default void enterSubtraction(Subtraction subtraction) {}
-    void visitSubtraction(Subtraction subtraction);
-    default void exitSubtraction(Subtraction subtraction){}
-    T getResult();
+	default void enter(Addition addition) {
+	}
+
+	void visit(Addition addition);
+
+	default void exit(Addition addition) {
+	}
+
+	default void enter(Subtraction subtraction) {
+	}
+
+	void visit(Subtraction subtraction);
+
+	default void exit(Subtraction subtraction) {
+	}
+
+	T getResult();
 
 }

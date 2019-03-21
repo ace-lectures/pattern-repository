@@ -6,21 +6,24 @@ import expressions.Subtraction;
 
 public class OperatorCounter implements ExpressionWalker<Integer> {
 
-    private int counter = 0;
+	private int counter = 0;
 
-    @Override
-    public void visitLiteral(Literal literal) { }
+	@Override
+	public void visit(Literal literal) {
+	}
 
-    @Override
-    public void visitAddition(Addition addition) {
-        counter++;
-    }
+	@Override
+	public void visit(Addition addition) {
+		counter++;
+	}
 
-    @Override
-    public void visitSubtraction(Subtraction subtraction) {
-        counter++;
-    }
+	@Override
+	public void visit(Subtraction subtraction) {
+		counter++;
+	}
 
-    @Override
-    public Integer getResult() { return counter; }
+	@Override
+	public Integer getResult() {
+		return counter;
+	}
 }

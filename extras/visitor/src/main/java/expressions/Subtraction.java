@@ -10,10 +10,10 @@ public class Subtraction extends BinaryOperation implements Expression {
 
 	@Override
 	public void accept(ExpressionWalker<?> e) {
-		e.enterSubtraction(this);
+		e.enter(this);
 		getLeft().accept(e);
-		e.visitSubtraction(this);
+		e.visit(this);
 		getRight().accept(e);
-		e.exitSubtraction(this);
+		e.exit(this);
 	}
 }

@@ -12,27 +12,27 @@ public class Evaluator implements ExpressionWalker<Integer> {
 	private int memory;
 
 	@Override
-	public void visitLiteral(Literal literal) {
+	public void visit(Literal literal) {
 		consumer.accept(literal.getValue());
 	}
 
 	@Override
-	public void enterAddition(Addition a) {
+	public void enter(Addition a) {
 		this.consumer = i -> memory = i;
 	}
 
 	@Override
-	public void visitAddition(Addition a) {
+	public void visit(Addition a) {
 		this.consumer = i -> memory += i;
 	}
 
 	@Override
-	public void enterSubtraction(Subtraction s) {
+	public void enter(Subtraction s) {
 		this.consumer = i -> memory = i;
 	}
 
 	@Override
-	public void visitSubtraction(Subtraction s) {
+	public void visit(Subtraction s) {
 		this.consumer = i -> memory -= i;
 	}
 

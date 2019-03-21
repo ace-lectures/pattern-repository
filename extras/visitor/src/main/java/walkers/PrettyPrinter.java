@@ -8,41 +8,43 @@ public class PrettyPrinter implements ExpressionWalker<String> {
 
 	private StringBuilder buffer = new StringBuilder();
 
-    @Override
-    public void visitLiteral(Literal literal) {
-        buffer.append(literal.getValue());
-    }
-
-    @Override
-	public void enterAddition(Addition addition) {
-    	buffer.append("(");
-	}
-
-    @Override
-    public void visitAddition(Addition addition) {
-        buffer.append( " + ");
-    }
-
 	@Override
-	public void exitAddition(Addition addition) {
-		buffer.append(")");
+	public void visit(Literal literal) {
+		buffer.append(literal.getValue());
 	}
 
 	@Override
-	public void enterSubtraction(Subtraction subtraction) {
+	public void enter(Addition addition) {
 		buffer.append("(");
 	}
 
-    @Override
-    public void visitSubtraction(Subtraction subtraction) {
-        buffer.append( " - ");
-    }
+	@Override
+	public void visit(Addition addition) {
+		buffer.append(" + ");
+	}
 
 	@Override
-	public void exitSubtraction(Subtraction subtraction) {
+	public void exit(Addition addition) {
 		buffer.append(")");
 	}
 
-    @Override
-    public String getResult() { return buffer.toString(); }
+	@Override
+	public void enter(Subtraction subtraction) {
+		buffer.append("(");
+	}
+
+	@Override
+	public void visit(Subtraction subtraction) {
+		buffer.append(" - ");
+	}
+
+	@Override
+	public void exit(Subtraction subtraction) {
+		buffer.append(")");
+	}
+
+	@Override
+	public String getResult() {
+		return buffer.toString();
+	}
 }

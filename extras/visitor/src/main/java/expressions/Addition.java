@@ -10,11 +10,11 @@ public class Addition extends BinaryOperation implements Expression {
 
 	@Override
 	public void accept(ExpressionWalker<?> e) {
-		e.enterAddition(this);
+		e.enter(this);
 		getLeft().accept(e);
-		e.visitAddition(this);
+		e.visit(this);
 		getRight().accept(e);
-		e.exitAddition(this);
+		e.exit(this);
 	}
 
 }
