@@ -1,0 +1,50 @@
+@startuml
+
+hide footbox
+title Visitor Pattern Behavior
+
+participant ": Client" as C
+
+[-> C:
+activate C
+create "v: ConcreteVisitor" as V
+C -> V: new()
+activate V
+participant "a: ConcreteElementA" as A
+participant "b: ConcreteElementB" as B
+V --> C
+deactivate V
+
+C -> A: accept(v)
+activate A
+A -> V: visitA(a)
+activate V
+V -> A: operationA()
+activate A
+A --> V
+deactivate A
+V --> A
+deactivate V
+A --> C
+deactivate A
+
+C -> B: accept(v)
+activate B
+B -> V: visitB(b)
+activate V
+V -> B: operationB()
+activate B
+B --> V
+deactivate B
+V --> B
+deactivate V
+B --> C
+deactivate B
+
+[<-- C
+deactivate C
+
+
+
+
+@enduml

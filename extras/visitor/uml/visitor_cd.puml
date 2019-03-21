@@ -1,0 +1,39 @@
+@startuml
+
+skinparam nodesep 75
+skinparam ranksep 50
+hide empty members
+
+interface Visitor {
+  + {abstract} visitA(ConcreteElementA)
+  + {abstract} visitB(ConcreteElementB)
+}
+
+class ConcreteVisitor {
+  + visitA(ConcreteElementA)
+  + visitB(ConcreteElementB)
+}
+
+Visitor <|-- ConcreteVisitor
+
+class Element {
+  + {abstract} accept(Visitor)
+}
+
+Element . Visitor
+
+class ConcreteElementA {
+  + accept(Visitor)
+  __
+  + operationA()
+}
+Element <|-- ConcreteElementA
+
+class ConcreteElementB {
+  + accept(Visitor)
+  __
+  + operationB()
+}
+Element <|-- ConcreteElementB
+
+@enduml
