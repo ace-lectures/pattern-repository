@@ -24,11 +24,11 @@ Patron de conception | Description | Code d'exemple | Diapositives |
 
 Patron de conception | Description | Code d'exemple | Diapositives |
 ---------------------| :---------: | :------------: | :----------: |
-[Adapter](./creation/adapter) | :white_check_mark: | :x: | :x: | 
-[Composite](./creation/composite) | :white_check_mark: | :white_check_mark: | :x: | 
-[Decorator](./creation/decorator) | :white_check_mark: | :white_check_mark: | :x: | 
-[Facade](./creation/facade) | :white_check_mark: | :x: | :x: | 
-[Proxy](./creation/proxy) | :white_check_mark: | :white_check_mark: | :x: | 
+[Adapter](./structure/adapter) | :white_check_mark: | :x: | :x: | 
+[Composite](./structure/composite) | :white_check_mark: | :white_check_mark: | :x: | 
+[Decorator](./structure/decorator) | :white_check_mark: | :white_check_mark: | :x: | 
+[Facade](./structure/facade) | :white_check_mark: | :x: | :x: | 
+[Proxy](./structure/proxy) | :white_check_mark: | :white_check_mark: | :x: | 
 
 ### Comportement
 
@@ -36,7 +36,7 @@ Patron de conception | Description | Code d'exemple | Diapositives |
 ---------------------| :---------: | :------------: | :----------: |
 [Command](./comportement/command) | :white_check_mark: | :x: | :x: | 
 [Observer](./comportement/observer) | :white_check_mark: | :white_check_mark: | :x: | 
-[State](./comportement/state) | :white_check_mark: | :x: | :x: | 
+[State](./comportement/state) | :white_check_mark: | :white_check_mark: | :x: | 
 [Strategy](./comportement/strategy) | :white_check_mark: | :white_check_mark: | :x: | 
 [Template Method](./comportement/template_method) | :white_check_mark: | :white_check_mark: | :x: | 
 [Visitor](./comportement/visitor) | :white_check_mark: | :white_check_mark: | :x: | 
