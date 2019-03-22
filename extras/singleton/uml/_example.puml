@@ -1,0 +1,36 @@
+@startuml
+
+skinparam nodesep 75
+skinparam ranksep 50
+hide empty members
+
+
+interface Product {
+ + {abstract} doSomething()
+}
+
+
+class Regular {
+  - int counter = 0;
+  __
+  + this()
+  __
+  + {static} int howManyCreated();
+  + doSomething()
+}
+
+class Unique << Singleton >> {
+  - int counter = 0;
+  - Unique instance;
+  __
+  - this()
+  __
+  + {static} int howManyCreated();
+  + {static} Unique build()
+  + doSomething()
+}
+
+Product <|-- Regular
+Product <|-- Unique
+
+@enduml
