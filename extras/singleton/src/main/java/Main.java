@@ -1,7 +1,6 @@
 import products.Factory;
 import products.Product;
 import products.Regular;
-import products.Unique;
 import products.UniqueLazyNotThreadSafe;
 import products.UniqueThreadSafe;
 
@@ -31,7 +30,7 @@ public class Main {
     
     System.out.println("\n###\n# Singleton Lazy usage\n###");
     // Product sing1 = new UniqueLazyNotThreadSafe(); // Does not compile, thanks to the private constructor
-    System.out.println("Number of instances created: " + Unique.howManyCreated()+"\n");
+    System.out.println("Number of instances created: " + UniqueLazyNotThreadSafe.howManyCreated()+"\n");
     Product sing1 = UniqueLazyNotThreadSafe.build();
     sing1.doSomething();
     Product sing2 = UniqueLazyNotThreadSafe.build();
