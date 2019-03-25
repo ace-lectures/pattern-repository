@@ -19,18 +19,53 @@ class Regular {
   + doSomething()
 }
 
-class Unique << Singleton >> {
+class Factory {
   - int counter = 0;
-  - Unique instance;
   __
   - this()
   __
   + {static} int howManyCreated();
-  + {static} Unique build()
+  + {static} Factory build()
+  + doSomething()
+}
+
+class UniqueLazyNonThreadSafe << Singleton >> {
+  - int counter = 0;
+  - UniqueLazyNonThreadSafe instance;
+  __
+  - this()
+  __
+  + {static} int howManyCreated();
+  + {static} UniqueLazyNonThreadSafe build()
+  + doSomething()
+}
+
+class UniqueThreadSafe << Singleton >> {
+  - int counter = 0;
+  - UniqueThreadSafe instance = new UniqueThreadSafe();
+  __
+  - this()
+  __
+  + {static} int howManyCreated();
+  + {static} UniqueThreadSafe build()
+  + doSomething()
+}
+
+class UniqueLazyThreadSafe << Singleton >> {
+  - int counter = 0;
+  - UniqueLazyThreadSafe instance;
+  __
+  - this()
+  __
+  + {static} int howManyCreated();
+  - {static} void expensiveCheck();
+  + {static} UniqueLazyThreadSafe build()
   + doSomething()
 }
 
 Product <|-- Regular
-Product <|-- Unique
-
+Product <|-- Factory
+Product <|-- UniqueLazyNonThreadSafe
+Product <|-- UniqueThreadSafe
+Product <|-- UniqueLazyThreadSafe
 @enduml
