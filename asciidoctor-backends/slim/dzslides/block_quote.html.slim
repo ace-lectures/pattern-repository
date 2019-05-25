@@ -1,0 +1,11 @@
+blockquote class=role
+  - if blocks?
+    =content
+  - else
+    p=content
+  - if (attr? :citetitle) || (attr? :attribution)
+    - if attr? :citetitle
+      em=attr :citetitle
+    br
+    - if attr? :attribution
+      cite=attr :attribution

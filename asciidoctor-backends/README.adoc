@@ -1,0 +1,76 @@
+= Asciidoctor Backends
+ifdef::env-github[:outfilesuffix: .adoc]
+
+image:https://travis-ci.org/asciidoctor/asciidoctor-backends.svg?branch=master[Build Status,link=https://travis-ci.org/asciidoctor/asciidoctor-backends]
+
+This repository hosts an assortment of backends (i.e., templates) for https://github.com/asciidoctor/asciidoctor[Asciidoctor], a pure Ruby port of the http://asciidoc.org[AsciiDoc] markup language.
+
+In this repository, you'll find replicas of both the html5 and docbook45 backends from AsciiDoc (and Asciidoctor) written in both http://haml.info[Haml] and http://slim-lang.com[Slim], as well as backends for generating HTML5 presentations from AsciiDoc.
+
+== General Usage Instructions
+
+. Ensure Asciidoctor, Slim, Haml and their dependencies are installed:
+
+ $ gem install asciidoctor tilt haml thread_safe
+   gem install slim --version 2.1.0
++
+WARNING: The Slim-based templates are not yet compatible with Slim 3.
+
+. Clone `asciidoctor/asciidoctor-backends` to get templates for rendering presentation HTML:
+
+ $ git clone https://github.com/asciidoctor/asciidoctor-backends
+
+. Edit `CONTENT_FILE` ( *.adoc or *.ad or ...):
+
+  ** Slides & content per slide
+  ** [Optional] Set presentation "options" at top of `CONTENT_FILE`.  The options available & their values will depend on presentation library (some examples below).
+
+  :${Attribute}: ${Value}
+
+. Generate HTML from Asciidoctor templates:
+
+  .. Command Line:
+
+ $ asciidoctor -T TEMPLATE_DIRECTORY ${options} CONTENT_FILE
+
+  .. Build Script: use Ruby, JavaScript, Gradle, or your favorite build tool/script with presentation options
+
+. Copy or clone presentation library (to output destination/branch):
+
+ $ git clone PRESENTATION_LIBRARY
+
+TIP: If you are using https://pages.github.com/[GitHub Pages], plan ahead by keeping your source files on `master` branch and all output files on the `gh-pages` branch.
+
+.Existing Backends Templates
+[cols="1a,2m,2"]
+|===
+|Backend |`PRESENTATION_LIBRARY` |`TEMPLATE_DIRECTORY`
+
+|http://imakewebthings.com/deck.js/[deck.js]
+|https://github.com/imakewebthings/deck.js
+|replaced by: +
+https://github.com/asciidoctor/asciidoctor-deck.js[asciidoctor/asciidoctor-deck.js]
+
+|http://lab.hakim.se/reveal-js/#/[reveal.js]
+|https://github.com/hakimel/reveal.js
+|replaced by: +
+https://github.com/asciidoctor/asciidoctor-reveal.js[asciidoctor/asciidoctor-reveal.js]
+
+|http://paulrouget.com/dzslides/[DZSlides]
+|https://github.com/paulrouget/dzslides
+|`asciidoctor-backends/slim/dzslides`
+
+|http://markdalgleish.com/projects/bespoke.js/[Bespoke.js]
+|https://github.com/markdalgleish/bespoke.js
+|`asciidoctor-backends/slim/bespokejs`
+|===
+
+NOTE: Some backends may be broken out into new repositories in order to manage releases independently (and potentially publish separate gems).
+Aggregation of those releases back into this project may be delayed.
+
+== Copyright and Licensing
+
+Copyright (C) 2012-2016 Dan Allen and the Asciidoctor Project.
+Free use of this software is granted under the terms of the MIT License.
+
+See the <<LICENSE#,LICENSE>> file for details.

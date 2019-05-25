@@ -1,0 +1,10 @@
+dl class=[@style,role]
+  - items.each do |terms, dd|
+    - [*terms].each do |dt|
+      dt=dt.text
+    - unless dd.nil?
+      dd
+        - if dd.text?
+          =dd.text
+        - if dd.blocks?
+          =dd.content

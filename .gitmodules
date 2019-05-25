@@ -1,0 +1,9 @@
+[submodule "structure/facade/structure/facade/dzslides"]
+	path = structure/facade/structure/facade/dzslides
+	url = https://github.com/mojavelinux/dzslides.git
+[submodule "structure/facade/dzslides"]
+	path = structure/facade/dzslides
+	url = https://github.com/mojavelinux/dzslides.git
+[submodule "structure/composite/dzslides"]
+	path = structure/composite/dzslides
+	url = https://github.com/mojavelinux/dzslides.git

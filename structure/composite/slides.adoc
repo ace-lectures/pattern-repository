@@ -1,0 +1,30 @@
+= The *{pattern}* pattern
+Author <author@blabla.com>
+v1.x, {localdate}
+//-----------------------
+:dzslides-style: tomorrow
+//:dzslides-style: stormy, watermelon, tomorrow, truffle, statement, default
+:dzslides-transition: fade
+:dzslides-fonts: family=Yanone+Kaffeesatz:400,700,200,300&family=Cedarville+Cursive
+//:dzslides-highlight: asciidoctor
+:dzslides-highlight: monokai
+:source-highlighter: highlightjs
+:dzslides-status:
+//-----------------------
+
+[.topic]
+== Structure
+
+[plantuml,uml/{pattern}_cd,svg]
+....
+include::uml/{pattern}_cd.puml[]
+....
+
+[.topic]
+== Behavior
+
+[plantuml,uml/{pattern}_sd,svg]
+....
+include::uml/{pattern}_sd.puml[]
+....
+

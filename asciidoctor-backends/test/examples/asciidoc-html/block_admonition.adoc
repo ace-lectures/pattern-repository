@@ -1,0 +1,7 @@
+// .image_icons
+:icons:
+WARNING: Watch out for dragons!
+
+// .font_icons
+:icons: font
+WARNING: Watch out for dragons!

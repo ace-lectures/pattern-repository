@@ -1,0 +1,13 @@
+// .image_icons
+:icons:
+[source]
+----
+"Hello world!" // <1>
+----
+
+// .font_icons
+:icons: font
+[source]
+----
+"Hello world!" // <1>
+----

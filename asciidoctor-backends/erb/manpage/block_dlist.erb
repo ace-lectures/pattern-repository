@@ -1,0 +1,20 @@
+<% previous_has_content = true %><% items.each do |terms, dd| %><%
+  if previous_has_content %>.PP
+<%
+  end
+  if !previous_has_content %>, <% end
+# FIXME support multiple terms per item
+%><%= manify [*terms].first.text, !dd.nil? %><%
+  if !dd.nil?
+    previous_has_content = true %>.RS 4
+<%= manify dd.text, false %><%
+  if dd.blocks? %>
+<%= dd.content.rstrip + "\n" %><%
+  else
+%><%= "\n" %><%
+  end %>.RE
+<%
+  else
+    previous_has_content = false
+  end
+end %>
