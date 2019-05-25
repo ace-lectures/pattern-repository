@@ -25,7 +25,7 @@ Patron de conception | Description | Code d'exemple | Diapositives |
 Patron de conception | Description | Code d'exemple | Diapositives |
 ---------------------| :---------: | :------------: | :----------: |
 [Adapter](./structure/adapter) | :white_check_mark: | :x: | :x: | 
-[Composite](./structure/composite) | :white_check_mark: | :white_check_mark: | ./structure/composite/slides.html | 
+[Composite](./structure/composite) | :white_check_mark: | :white_check_mark: | [slides](./structure/composite/slides.html) | 
 [Decorator](./structure/decorator) | :white_check_mark: | :white_check_mark: | :x: | 
 [Facade](./structure/facade) | :white_check_mark: | :x: | :x: | 
 [Proxy](./structure/proxy) | :white_check_mark: | :white_check_mark: | :x: | 
