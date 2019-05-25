@@ -8,4 +8,5 @@ slides.html: slides.adoc uml/*.puml
 		-E slim \
 		-r asciidoctor-diagram \
 		-a pattern=$(PATTERN) \
+		-a data-uri \
 		slides.adoc 
