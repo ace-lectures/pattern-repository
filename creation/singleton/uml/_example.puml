@@ -30,7 +30,7 @@ class Unique << Singleton >> {
   + doSomething()
 }
 
-Product <|-- Regular
-Product <|-- Unique
+Product <|.. Regular
+Product <|.. Unique
 
 @enduml

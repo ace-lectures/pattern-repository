@@ -31,7 +31,7 @@ class Email {
   __
   + send()
 }
-Message <|-- Email
+Message <|.. Email
 
 class SMS {
   - String to
@@ -39,7 +39,7 @@ class SMS {
   __
   + send()
 }
-Message <|-- SMS
+Message <|.. SMS
 
 class EmailBuilder <<ConcreteBuilder>> {
   + <<buildPart>> addRecipient(String)
@@ -47,7 +47,7 @@ class EmailBuilder <<ConcreteBuilder>> {
   + <<result>> assemble(): List<Message>
 }
 EmailBuilder . Email
-MessageBuilder <|-- EmailBuilder
+MessageBuilder <|.. EmailBuilder
 
 
 class SMSBuilder <<ConcreteBuilder>> {
@@ -57,7 +57,7 @@ class SMSBuilder <<ConcreteBuilder>> {
 }
 
 SMSBuilder . SMS
-MessageBuilder <|-- SMSBuilder
+MessageBuilder <|.. SMSBuilder
 
 Email -[hidden]- SMS
 

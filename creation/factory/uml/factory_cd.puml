@@ -16,8 +16,8 @@ class ConcreteFactory2 {
   + build(): Product
 }
 
-Factory <|-- ConcreteFactory1
-Factory <|-- ConcreteFactory2
+Factory <|.. ConcreteFactory1
+Factory <|.. ConcreteFactory2
 
 package products {
 
@@ -31,8 +31,8 @@ package products {
     + doSomething()
   }
 
-  Product <|-- ConcreteProduct1
-  Product <|-- ConcreteProduct2
+  Product <|.. ConcreteProduct1
+  Product <|.. ConcreteProduct2
 
   ConcreteProduct2 .[hidden]. ConcreteProduct1
 

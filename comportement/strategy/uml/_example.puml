@@ -22,8 +22,8 @@ class ClosestToAverage <<ConcreteStrategy>> {
   + <<algorithm>> compare(List<Integer>): Integer
 }
 
-PriceComparison <|-- CheapestOne
-PriceComparison <|-- ClosestToAverage
+PriceComparison <|.. CheapestOne
+PriceComparison <|.. ClosestToAverage
 
 RecommendationEngine *--> "1\ncomparator" PriceComparison
 

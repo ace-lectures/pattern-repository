@@ -14,8 +14,8 @@ class ConcreteComponent {
 
 abstract class Decorator
 
-Component <|-- ConcreteComponent
-Component <|-- Decorator
+Component <|.. ConcreteComponent
+Component <|.. Decorator
 Decorator o--> "1\ncomp" Component
 
 class ConcreteDecorator {

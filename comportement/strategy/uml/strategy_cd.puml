@@ -19,7 +19,7 @@ class ConcreteStrategy {
 }
 
 
-Strategy <|-- ConcreteStrategy
+Strategy <|.. ConcreteStrategy
 
 Context -right-> "1\nstrategy" Strategy
 

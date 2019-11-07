@@ -22,7 +22,7 @@ class ConcreteBuilder {
 
 class Product
 
-Builder <|-- ConcreteBuilder
+Builder <|.. ConcreteBuilder
 Builder . Product
 
 @enduml

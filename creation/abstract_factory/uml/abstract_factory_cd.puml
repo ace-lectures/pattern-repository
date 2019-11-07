@@ -21,8 +21,8 @@ together {
   }
 }
 
-AbstractFactory <|-- ConcreteFactory1
-AbstractFactory <|-- ConcreteFactory2
+AbstractFactory <|.. ConcreteFactory1
+AbstractFactory <|.. ConcreteFactory2
 
 package A {
 
@@ -32,8 +32,8 @@ class ConcreteProductA2
 
 ConcreteProductA2 .[hidden]. ConcreteProductA1
 
-ProductA <|-- ConcreteProductA1
-ProductA <|-- ConcreteProductA2
+ProductA <|.. ConcreteProductA1
+ProductA <|.. ConcreteProductA2
 
 }
 
@@ -45,8 +45,8 @@ class ConcreteProductB2
 
 ConcreteProductB2 .[hidden]. ConcreteProductB1
 
-ProductB <|-- ConcreteProductB1
-ProductB <|-- ConcreteProductB2
+ProductB <|.. ConcreteProductB1
+ProductB <|.. ConcreteProductB2
 
 }
 

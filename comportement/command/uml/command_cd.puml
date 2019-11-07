@@ -29,7 +29,7 @@ class ConcreteCommand {
   + execute()
 }
 
-Command <|-- ConcreteCommand
+Command <|.. ConcreteCommand
 Receiver <- ConcreteCommand
 
 Client .> ConcreteCommand

@@ -23,7 +23,7 @@ class ConcreteState2 {
   + handle()
 }
 
-State <|-- ConcreteState1
-State <|-- ConcreteState2
+State <|.. ConcreteState1
+State <|.. ConcreteState2
 
 @enduml

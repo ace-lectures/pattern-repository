@@ -15,7 +15,7 @@ Main . Test
 class Assertion <<Leaf>> {
   + <<doSomething>> run()
 }
-Test <|-- Assertion
+Test <|.. Assertion
 
 class TestSuite <<Composite>> {
   + <<doSomething>> run()
@@ -23,7 +23,7 @@ class TestSuite <<Composite>> {
   + add(Test)
   + remove(Test)
 }
-Test <|-- TestSuite
+Test <|.. TestSuite
 TestSuite *--> "1..n\ntests" Test
 
 @enduml

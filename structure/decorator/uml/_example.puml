@@ -12,7 +12,7 @@ abstract class Coffee {
   + toString(): String
 }
 
-Beverage <|-- Coffee
+Beverage <|.. Coffee
 
 abstract class Extra <<Decorator>> {
   this(Beverage)
@@ -22,8 +22,8 @@ abstract class Extra <<Decorator>> {
   __
   ~ {abstract} <<extra>> extra(double): double
 }
-Beverage <|-- Extra
-Extra --> "1\ncomponent" Beverage
+Beverage <|.. Extra
+Extra *--> "1\ncomponent" Beverage
 
 package coffees {
   class Regular <<ConcreteComponent>> {

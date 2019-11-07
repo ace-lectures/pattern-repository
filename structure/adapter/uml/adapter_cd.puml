@@ -22,8 +22,8 @@ class Adapter {
   + request()
 }
 
-Target <|-- ConcreteTarget
-Target <|-- Adapter
+Target <|.. ConcreteTarget
+Target <|.. Adapter
 
 ConcreteTarget .[hidden] Adapter
 

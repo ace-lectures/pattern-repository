@@ -15,7 +15,7 @@ Client -> Component
 class Leaf {
   + operation()
 }
-Component <|-- Leaf
+Component <|.. Leaf
 
 class Composite {
   + operation()
@@ -23,7 +23,7 @@ class Composite {
   + add(Component)
   + remove(Component)
 }
-Component <|-- Composite
+Component <|.. Composite
 Composite *--> "1..n\nchildren" Component
 
 @enduml

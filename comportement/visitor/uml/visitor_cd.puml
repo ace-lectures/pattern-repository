@@ -14,26 +14,26 @@ class ConcreteVisitor {
   + visitB(ConcreteElementB)
 }
 
-Visitor <|-- ConcreteVisitor
+Visitor <|.. ConcreteVisitor
 
-class Element {
+interface Visitable {
   + {abstract} accept(Visitor)
 }
 
-Element . Visitor
+Visitable . Visitor
 
 class ConcreteElementA {
   + accept(Visitor)
   __
   + operationA()
 }
-Element <|-- ConcreteElementA
+Visitable <|.. ConcreteElementA
 
 class ConcreteElementB {
   + accept(Visitor)
   __
   + operationB()
 }
-Element <|-- ConcreteElementB
+Visitable <|.. ConcreteElementB
 
 @enduml

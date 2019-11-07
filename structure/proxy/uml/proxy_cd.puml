@@ -16,14 +16,14 @@ class RealSubject {
   + operation()
 }
 
-Subject <|-- RealSubject
+Subject <|.. RealSubject
 
 class Proxy {
   + this(Subject)
   __
   + operation()
 }
-Subject <|-- Proxy
+Subject <|.. Proxy
 
 RealSubject "1\ntarget" <- Proxy
 

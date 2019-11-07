@@ -15,13 +15,13 @@ package expressions {
     + getValue(): int
     + accept(ExpressionWalker)
   }
-  Expression <|-- Literal
+  Expression <|.. Literal
 
   abstract class BinaryOperation {
     + getLeft(): Expression
     + getRight(): Expression
   }
-  Expression <|-- BinaryOperation
+  Expression <|.. BinaryOperation
   BinaryOperation *-> "left" Expression
   BinaryOperation *-> "right" Expression
 
@@ -52,7 +52,7 @@ package walkers {
     __
     + getResult(): Integer
   }
-  ExpressionWalker <|-- Evaluator
+  ExpressionWalker <|.. Evaluator
 
   class OperandCounter<Integer> <<ConcreteVisitor>> {
     + visitLiteral(Literal)
@@ -61,7 +61,7 @@ package walkers {
     __
     + getResult(): Integer
   }
-  ExpressionWalker <|-- OperandCounter
+  ExpressionWalker <|.. OperandCounter
 
   class OperatorCounter<Integer> <<ConcreteVisitor>> {
     + visitLiteral(Literal)
@@ -70,7 +70,7 @@ package walkers {
     __
     + getResult(): Integer
   }
-  ExpressionWalker <|-- OperatorCounter
+  ExpressionWalker <|.. OperatorCounter
 
   class PrettyPrinter<String> <<ConcreteVisitor>> {
     + visitLiteral(Literal)
@@ -79,7 +79,7 @@ package walkers {
     __
     + getResult(): String
   }
-  ExpressionWalker <|-- PrettyPrinter
+  ExpressionWalker <|.. PrettyPrinter
 
   Evaluator -[hidden]- OperandCounter
   OperatorCounter -[hidden]- PrettyPrinter
