@@ -1,0 +1,94 @@
+@startuml
+
+skinparam nodesep 75
+skinparam ranksep 50
+hide empty members
+
+package expressions {
+  interface Expression <<Element>> {
+    + {abstract} accept(ExpressionWalker)
+  }
+
+  class Literal <<ConcreteElement>> {
+    - int value
+    __
+    + getValue(): int
+    + accept(ExpressionWalker)
+  }
+  Expression <|-- Literal
+
+  abstract class BinaryOperation {
+    + getLeft(): Expression
+    + getRight(): Expression
+  }
+  Expression <|-- BinaryOperation
+  BinaryOperation *-> "left" Expression
+  BinaryOperation *-> "right" Expression
+
+  class Addition <<ConcreteElement>> {
+    + accept(ExpressionWalker)
+  }
+  BinaryOperation <|-- Addition
+
+  class Subtraction <<ConcreteElement>> {
+    + accept(ExpressionWalker)
+  }
+  BinaryOperation <|-- Subtraction
+}
+
+package walkers {
+  interface ExpressionWalker<Type> <<Visitor>> {
+    + {abstract} visitLiteral(Literal)
+    + {abstract} visitAddition(Addition)
+    + {abstract} visitSubtraction(Subtraction)
+    __
+    + {abstract} getResult(): Type
+  }
+
+  class Evaluator<Integer> <<ConcreteVisitor>> {
+    + visitLiteral(Literal)
+    + visitAddition(Addition)
+    + visitSubtraction(Subtraction)
+    __
+    + getResult(): Integer
+  }
+  ExpressionWalker <|-- Evaluator
+
+  class OperandCounter<Integer> <<ConcreteVisitor>> {
+    + visitLiteral(Literal)
+    + visitAddition(Addition)
+    + visitSubtraction(Subtraction)
+    __
+    + getResult(): Integer
+  }
+  ExpressionWalker <|-- OperandCounter
+
+  class OperatorCounter<Integer> <<ConcreteVisitor>> {
+    + visitLiteral(Literal)
+    + visitAddition(Addition)
+    + visitSubtraction(Subtraction)
+    __
+    + getResult(): Integer
+  }
+  ExpressionWalker <|-- OperatorCounter
+
+  class PrettyPrinter<String> <<ConcreteVisitor>> {
+    + visitLiteral(Literal)
+    + visitAddition(Addition)
+    + visitSubtraction(Subtraction)
+    __
+    + getResult(): String
+  }
+  ExpressionWalker <|-- PrettyPrinter
+
+  Evaluator -[hidden]- OperandCounter
+  OperatorCounter -[hidden]- PrettyPrinter
+}
+
+Expression . ExpressionWalker
+
+class Main
+Main .. Expression
+Main .. ExpressionWalker
+
+@enduml

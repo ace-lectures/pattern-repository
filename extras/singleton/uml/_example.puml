@@ -1,0 +1,71 @@
+@startuml
+
+skinparam nodesep 75
+skinparam ranksep 50
+hide empty members
+
+
+interface Product {
+ + {abstract} doSomething()
+}
+
+
+class Regular {
+  - int counter = 0;
+  __
+  + this()
+  __
+  + {static} int howManyCreated();
+  + doSomething()
+}
+
+class Factory {
+  - int counter = 0;
+  __
+  - this()
+  __
+  + {static} int howManyCreated();
+  + {static} Factory build()
+  + doSomething()
+}
+
+class UniqueLazyNonThreadSafe << Singleton >> {
+  - int counter = 0;
+  - UniqueLazyNonThreadSafe instance;
+  __
+  - this()
+  __
+  + {static} int howManyCreated();
+  + {static} UniqueLazyNonThreadSafe build()
+  + doSomething()
+}
+
+class UniqueThreadSafe << Singleton >> {
+  - int counter = 0;
+  - UniqueThreadSafe instance = new UniqueThreadSafe();
+  __
+  - this()
+  __
+  + {static} int howManyCreated();
+  + {static} UniqueThreadSafe build()
+  + doSomething()
+}
+
+class UniqueLazyThreadSafe << Singleton >> {
+  - int counter = 0;
+  - UniqueLazyThreadSafe instance;
+  __
+  - this()
+  __
+  + {static} int howManyCreated();
+  - {static} void expensiveCheck();
+  + {static} UniqueLazyThreadSafe build()
+  + doSomething()
+}
+
+Product <|-- Regular
+Product <|-- Factory
+Product <|-- UniqueLazyNonThreadSafe
+Product <|-- UniqueThreadSafe
+Product <|-- UniqueLazyThreadSafe
+@enduml

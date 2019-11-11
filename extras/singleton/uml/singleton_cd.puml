@@ -1,0 +1,16 @@
+@startuml
+
+skinparam nodesep 75
+skinparam ranksep 50
+hide empty members
+
+
+class Singleton {
+  - {static} Singleton instance
+  __
+  - Singleton()
+  __
+  + {static} build(): Singleton
+}
+
+@enduml
