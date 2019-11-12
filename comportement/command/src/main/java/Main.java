@@ -1,4 +1,4 @@
-import commands.Receiver;
+import commands.Invoker;
 import commands.light.SwitchLightOn;
 import macros.PresenterMode;
 import smarthome.Classroom;
@@ -7,7 +7,7 @@ public class Main {
 
   public static void main(String[] args) {
 
-    Receiver remote = new Receiver();
+    Invoker remote = new Invoker();
 
     System.out.println("Piloting Smart lights");
     remote.invoke(new SwitchLightOn(Classroom.frontLight));

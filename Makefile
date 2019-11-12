@@ -28,4 +28,7 @@ pdf: $(PDFS)
 
 ## Clean
 clean:
-	rm -rf $(PNGS) $(PDFS) $(SVGS)
+	rm -rf $(PDFS) $(SVGS)
+
+clobber: clean
+	rm -rf $(PNGS)

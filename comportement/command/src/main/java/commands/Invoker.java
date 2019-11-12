@@ -2,11 +2,11 @@ package commands;
 
 import java.util.Stack;
 
-public class Receiver {
+public class Invoker {
 
     private Stack<Command> history;
 
-    public Receiver() {
+    public Invoker() {
         this.history = new Stack<>();
     }
 
