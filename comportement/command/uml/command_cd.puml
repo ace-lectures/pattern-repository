@@ -1,24 +1,15 @@
 @startuml
 
-skinparam nodesep 75
-skinparam ranksep 50
-hide empty members
+!include ../../../commons.style
 
-together {
+class Client
 
-  class Client
+interface Command {
+  + execute()
+}
 
-  interface Command {
-    + {abstract} execute()
-  }
-
-  class Invoker {
-    + invoke(c: Command)
-  }
-
-  Command . Invoker
-  Command .[hidden] Client
-
+class Invoker {
+  + invoke(c: Command)
 }
 
 class Receiver {
@@ -26,13 +17,25 @@ class Receiver {
 }
 
 class ConcreteCommand {
+  + this(Receiver)
+  __
   + execute()
 }
 
-Command <|.. ConcreteCommand
-Receiver <- ConcreteCommand
 
-Client .> ConcreteCommand
+Command <|.. ConcreteCommand
 Client --> Receiver
+Receiver "target" <- ConcreteCommand
+Client -> Invoker
+Client .. ConcreteCommand
+Invoker .. Command
+
+'Command . Invoker
+'Command <|.. ConcreteCommand
+'Receiver <-- ConcreteCommand
+
+'Client .> ConcreteCommand
+'Receiver <-- Client
+'Invoker <-- Client
 
 @enduml

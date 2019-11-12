@@ -1,22 +1,16 @@
 @startuml
+!include ../../../commons.style
 
-hide footbox
 title Command Pattern Behavior
 
 participant ": Client" as C
+participant "r: Receiver" as R
 participant ": Invoker" as I
 
 [-> C:
 activate C
 create "c: ConcreteCommand" as CC
-C -> CC: new()
-C -> CC: setReceiver(r)
-activate CC
-CC --> C
-deactivate CC
-
-
-participant "r: Receiver" as R
+C -> CC: this(r)
 
 C -> I: invoke(c)
 activate I

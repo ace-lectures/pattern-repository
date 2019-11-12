@@ -1,0 +1,42 @@
+@startuml
+
+!include ../../../commons.style
+
+
+class Main
+
+package smarthome {
+  class SmartDoor <<Receiver>> {
+    - Boolean isOpen = true
+    __
+    + <<action>> close()
+    + <<action>> open()
+  }
+
+  class SmartProjector <<Receiver>> {
+    - Boolean isOn = false
+    __
+    + <<action>> start()
+    + <<action>> shutdown()
+  }
+
+  class SmartScreen <<Receiver>> {
+    - Boolean isUp = false
+    __
+    + <<action>> up()
+    + <<action>> down()
+  }
+
+  class SmartLight <<Receiver>> {
+    - Boolean isOn = false
+    __
+    + <<action>> switch(status: Boolean)
+  }
+
+}
+
+class Main <<Client>>
+
+
+
+@enduml
