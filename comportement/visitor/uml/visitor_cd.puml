@@ -1,8 +1,8 @@
 @startuml
 
-skinparam nodesep 75
+!include ../../../commons.style
 skinparam ranksep 50
-hide empty members
+
 
 interface Visitor {
   + {abstract} visitA(ConcreteElementA)

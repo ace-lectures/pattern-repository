@@ -1,8 +1,8 @@
 @startuml
 
+!include ../../../commons.style
 skinparam nodesep 75
-skinparam ranksep 50
-hide empty members
+
 
 class Student <<Prototype>> {
   - Set<String> courses

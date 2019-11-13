@@ -20,7 +20,7 @@ package commands {
   interface Command {
     + execute()
     + revert(): Command
-  }
+  } 
 
   class Invoker {
     + invoke(c: Command)

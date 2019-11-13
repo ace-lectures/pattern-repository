@@ -2,8 +2,11 @@
 'Adapted by Sébastien Mosser for INF-5153'
 
 skinparam nodesep 75
-skinparam ranksep 50
+skinparam ranksep 75
 hide empty members
+
+skinparam noteFontSize 10
+skinparam noteFontName Courier
 
 skinparam monochrome  false
 skinparam shadowing   false

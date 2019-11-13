@@ -1,6 +1,7 @@
 @startuml
 
-hide footbox
+!include ../../../commons.style
+
 title State Pattern Behavior
 
 participant ": Context" as C

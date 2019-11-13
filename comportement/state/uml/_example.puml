@@ -1,11 +1,8 @@
 @startuml
+!include ../../../commons.style
 
-skinparam nodesep 75
 skinparam ranksep 50
-skinparam noteFontSize 10
-skinparam noteFontName Courier
 
-hide empty members
 
 package bank {
   class Bank {

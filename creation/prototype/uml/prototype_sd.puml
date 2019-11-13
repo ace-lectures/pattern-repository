@@ -1,6 +1,7 @@
 @startuml
 
-hide footbox
+!include ../../../commons.style
+
 title Prototype Pattern Behavior
 
 participant ": System" as S

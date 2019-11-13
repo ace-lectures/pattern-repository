@@ -1,6 +1,6 @@
 @startuml
 
-hide footbox
+!include ../../../commons.style
 title Template Method Pattern Behavior
 
 participant ": Client" as C

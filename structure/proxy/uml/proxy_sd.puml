@@ -1,6 +1,7 @@
 @startuml
 
-hide footbox
+!include ../../../commons.style
+
 title Proxy Pattern Behavior
 
 participant ": Client" as C
