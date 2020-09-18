@@ -1,4 +1,4 @@
-#  Factory
+#  Prototype
 
   * Famille : Création
 
