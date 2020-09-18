@@ -1,8 +1,6 @@
-package travels.watchers;
+package travels;
 
-import travels.domain.Ticket;
-
-public class LeaveWhenTooExpensive extends TicketWatcher {
+public class LeaveWhenTooExpensive extends Watcher {
 
     private double threshold;
 

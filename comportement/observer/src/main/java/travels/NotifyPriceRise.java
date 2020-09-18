@@ -1,8 +1,6 @@
-package travels.watchers;
+package travels;
 
-import travels.domain.Ticket;
-
-public class NotifyPriceRise extends TicketWatcher {
+public class NotifyPriceRise extends Watcher {
 
     private double lastPrice;
 

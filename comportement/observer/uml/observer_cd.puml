@@ -1,33 +1,33 @@
 @startuml
 
-!include ../../../commons.style
+skinparam nodesep 75
+skinparam ranksep 50
+hide empty members
 
-skinparam nodesep 100
-
-interface Subject {
-  + attach(o: Observer)
-  + detach(o: Observer)
+abstract class Subject {
+  + attach(Observer o)
+  + detach(Observer o)
   + notify()
 }
 
-interface Observer {
+abstract class Observer {
   + {abstract} update()
 }
 
-Subject . Observer
+Subject "1" -> "0..n" Observer
 
 class ConcreteSubject {
-
+  - T state
+  + getState(): T
 }
 
-Subject <|.. ConcreteSubject
+Subject <|-- ConcreteSubject
 
 class ConcreteObserver {
-
+  - T subjectState
 }
 
-Observer <|.. ConcreteObserver
-ConcreteSubject *-> "n\nobservers" ConcreteObserver
-ConcreteSubject "1\nobservee"<- ConcreteObserver
+Observer <|-- ConcreteObserver
+ConcreteSubject <- ConcreteObserver
 
 @enduml

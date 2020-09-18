@@ -1,6 +1,10 @@
 @startuml
 
-!include ../../../commons.style
+skinparam nodesep 50
+skinparam ranksep 50
+skinparam noteFontSize 10
+skinparam noteFontName Courier
+hide empty members
 
 class Ticket <<Subject>> <<ConcreteSubject>>{
   - String from

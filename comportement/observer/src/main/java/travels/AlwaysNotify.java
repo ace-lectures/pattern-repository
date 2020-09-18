@@ -1,8 +1,6 @@
-package travels.watchers;
+package travels;
 
-import travels.domain.Ticket;
-
-public class AlwaysNotify extends TicketWatcher {
+public class AlwaysNotify extends Watcher {
 
     public AlwaysNotify(String n, Ticket t) { super(n,t); }
 

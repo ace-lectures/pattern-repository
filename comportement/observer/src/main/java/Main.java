@@ -1,9 +1,4 @@
-import travels.domain.Ticket;
-import travels.watchers.AlwaysNotify;
-import travels.watchers.LeaveWhenTooExpensive;
-import travels.watchers.NotifyPriceDrop;
-import travels.watchers.NotifyPriceRise;
-
+import travels.*;
 import java.util.*;
 
 public class Main {
